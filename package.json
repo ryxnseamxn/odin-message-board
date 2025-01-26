@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/ryxnseamxn/odin-messaging-app/issues"
   },
-  "homepage": "https://github.com/ryxnseamxn/odin-messaging-app#readme"
+  "homepage": "https://github.com/ryxnseamxn/odin-messaging-app#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-async-handler": "^1.2.0"
+  }
 }
