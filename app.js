@@ -4,6 +4,7 @@ const app = express();
 const router = require("./routes/routes"); 
 const errorHandler = require("./controllers/errorController"); 
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(router); 
