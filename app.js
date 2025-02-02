@@ -1,9 +1,10 @@
 const express = require("express"); 
 const asyncHandler = require("express-async-handler"); 
-const app = express(); 
 const router = require("./routes/routes"); 
 const errorHandler = require("./controllers/errorController"); 
+const app = express(); 
 
+app.set('view engine', 'ejs');  
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
