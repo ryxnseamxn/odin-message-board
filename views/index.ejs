@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages!</title>
+</head>
+<body>
+    <h1>Hello! Welcome to Ryan Seaman's message board.</h1>
+    <h3>Feel free to leave a comment!</h3>
+    <p>Messages</p>
+    <% if(locals.messages && locals.messages.length > 0){ %>
+        <% locals.messages.forEach(message => { %>
+             <p><%=message.text%></p>
+        <% }); %> 
+    <% } else { %>
+        <p>No messages found!</p>
+    <% } %>
+
+</body>
+</html>

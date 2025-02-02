@@ -8,7 +8,9 @@ router.get("/", (req, res) => {
 
 router.get("/messages", (req, res) => {
     let messages = messageController.getMessages(); 
-    res.send(messages); 
+    res.render('index', {
+        'messages': messages
+    }); 
 });
 
 router.post("/new", (req, res) => {
