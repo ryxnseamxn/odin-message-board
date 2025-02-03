@@ -14,7 +14,10 @@ router.get("/messages", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-
+    const text = req.query.text; 
+    const user = req.query.user;
+    messageController.addMessage(text, user);
+    res.status(200); 
 });
 
 module.exports = router; 

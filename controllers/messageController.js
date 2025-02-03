@@ -1,12 +1,10 @@
 const db = require("../db/db")
 
-const getMessages = () => {
+exports.getMessages = () => {
     console.log(db.messages);
-    return db.messages; 
+    return db.getMessages(); 
 }
 
-const addMessage = () => {
-
+exports.addMessage = (text, user) => {
+    db.addMessage(text, user); 
 }
-
-module.exports = { getMessages, addMessage }; 
