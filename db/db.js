@@ -37,7 +37,7 @@ class Storage {
         }).format(date);
     
         this.storage.push({ text, user, added: formattedDate }); 
-        console.log(this.storage);
+    
     }
     
     
