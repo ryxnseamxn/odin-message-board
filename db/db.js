@@ -13,14 +13,12 @@ class Storage {
             }
         ];
 
-        this.id = 0;
       }
 
       addMessage(text, user) {
-        const id = this.id;
         const date = new Date()
-        this.storage[id] = { id, text, user, date };
-        this.id++;
+        this.storage.push({ text, user, date });
+        console.log(this.storage);
       }
     
       getMessages() {
