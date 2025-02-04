@@ -13,6 +13,7 @@
         <% locals.messages.forEach(message => { %>
             <h3><%=message.user%></h3>
              <p><%=message.text%></p>
+             <p><%=message.added%></p>
         <% }); %> 
     <% } else { %>
         <p>No messages found!</p>
