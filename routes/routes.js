@@ -3,7 +3,7 @@ const messageController = require("../controllers/messageController");
 const router = Router(); 
 
 router.get("/", (req, res) => {
-    res.send("Hello, world!");
+    res.redirect("/messages");
 }); 
 
 router.get("/messages", (req, res) => {
@@ -14,10 +14,10 @@ router.get("/messages", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-    const text = req.query.text; 
-    const user = req.query.user;
+    const text = req.body.text; 
+    const user = req.body.username;
     messageController.addMessage(text, user);
-    res.status(200); 
+    res.redirect("/messages"); 
 });
 
 module.exports = router; 

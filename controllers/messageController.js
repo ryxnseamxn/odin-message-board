@@ -1,7 +1,6 @@
 const db = require("../db/db")
 
 exports.getMessages = () => {
-    console.log(db.messages);
     return db.getMessages(); 
 }
 
