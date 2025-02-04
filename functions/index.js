@@ -1,19 +1,17 @@
 const express = require("express"); 
-const asyncHandler = require("express-async-handler"); 
+const functions = require("firebase-functions");
 const router = require("./routes/routes"); 
 const errorHandler = require("./controllers/errorController"); 
 const app = express(); 
+const path = require("path"); 
 
 app.set('view engine', 'ejs');  
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
 
 app.use(router); 
-
 app.use(errorHandler);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}!`);
-});
+exports.app = functions.https.onRequest(app);
