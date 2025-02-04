@@ -9,6 +9,7 @@
 <body>
     <h1>Hello! Welcome to Ryan Seaman's message board.</h1>
     <h3>Feel free to leave a comment!</h3>
+    <%- include("partials/addMessage.ejs") %>
     <h3>Messages</h3>
     <% if(locals.messages && locals.messages.length > 0){ %>
         <% locals.messages.forEach(message => { %>
@@ -19,6 +20,5 @@
     <% } else { %>
         <p>No messages found!</p>
     <% } %>
-    <%- include("partials/addMessage.ejs") %>
 </body>
 </html>
