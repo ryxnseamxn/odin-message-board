@@ -3,29 +3,46 @@ const clock = require('world-clock')()
 
 class Storage {
     constructor() {
+        this.zones = zoneinfo.listTimezones()
+
         this.storage = [
             {
                 text: "Hi there!",
                 user: "Amando",
-                added: new Date()
+                added: this.formatDate(new Date(), this.getCountry())
             },
             {
                 text: "Hello World!",
                 user: "Charles",
-                added: new Date()
+                added: this.formatDate(new Date(), this.getCountry())
             }
         ];
-
-        this.zones = zoneinfo.listTimezones()
-      }
-
-      addMessage(text, user) {
-        const timezone = this.getCountry(); 
-        const localTime = clock.localDateTime(timezone);
-    
-        const date = new Date(localTime);
         
-        const formattedDate = new Intl.DateTimeFormat('en-US', {
+        }
+
+    addMessage(text, user) {
+    const timezone = this.getCountry(); 
+    const localTime = clock.localDateTime(timezone);
+
+    const date = new Date(localTime);
+    
+    const formattedDate = this.formatDate(date, timezone)
+
+    this.storage.push({ text, user, added: formattedDate }); 
+
+}
+    
+    
+    getMessages() {
+    return this.storage;
+    }
+
+    getCountry() {
+        return this.zones[Math.floor(Math.random() * this.zones.length)]; 
+    }
+
+    formatDate(date, timezone){
+        return new Intl.DateTimeFormat('en-US', {
             timeZone: timezone,
             year: 'numeric',
             month: '2-digit',
@@ -35,18 +52,6 @@ class Storage {
             second: '2-digit',
             timeZoneName: 'short'
         }).format(date);
-    
-        this.storage.push({ text, user, added: formattedDate }); 
-    
-    }
-    
-    
-      getMessages() {
-        return this.storage;
-      }
-
-    getCountry() {
-        return this.zones[Math.floor(Math.random() * this.zones.length)]; 
     }
 }
 
