@@ -1,8 +1,20 @@
 <form action="/new" method="POST">
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
+    
     <label for="text">Text</label>
     <input type="text" name="text" id="text">
-    <br>
+    
+    <label for="timezone">Timezone</label>
+    <select name="timezone" id="timezone">
+        <option value="">Select a timezone</option>
+        <% zones.forEach(function(zone) { %>
+            <option value="<%= zone %>" 
+                    <% if (locals.selectedZone && selectedZone === zone) { %>selected<% } %>>
+                <%= zone.replace(/_/g, ' ') %>
+            </option>
+        <% }); %>
+    </select>
+    
     <button type="submit">Add Message</button>
 </form>

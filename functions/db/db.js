@@ -7,34 +7,41 @@ class Storage {
 
         this.storage = [
             {
+                id: 0,
                 text: "Hi there!",
                 user: "Amando",
                 added: this.formatDate(new Date(), this.getCountry())
             },
             {
+                id: 1,
                 text: "Hello World!",
                 user: "Charles",
                 added: this.formatDate(new Date(), this.getCountry())
             }
         ];
+
+        this.id = 2;
+    }
+
+    addMessage(text, user, timezone) {
+        const id = this.id; 
+        this.id++;
+        const localTime = clock.localDateTime(timezone);
         
-        }
+        const date = new Date(localTime);
+        
+        const formattedDate = this.formatDate(date, timezone)
 
-    addMessage(text, user) {
-    const timezone = this.getCountry(); 
-    const localTime = clock.localDateTime(timezone);
-
-    const date = new Date(localTime);
-    
-    const formattedDate = this.formatDate(date, timezone)
-
-    this.storage.push({ text, user, added: formattedDate }); 
-
-}
+        this.storage.push({ id: id, text: text, user: user, added: formattedDate }); 
+    }
     
     
     getMessages() {
-    return this.storage;
+        return this.storage;
+    }
+
+    getMessage(id) {
+        return this.storage.find(msg => msg.id === id);
     }
 
     getCountry() {
@@ -52,6 +59,10 @@ class Storage {
             second: '2-digit',
             timeZoneName: 'short'
         }).format(date);
+    }
+
+    getZones(){
+        return this.zones;
     }
 }
 

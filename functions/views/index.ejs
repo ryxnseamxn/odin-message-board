@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Hello! Welcome to Ryan Seaman's message board.</h1>
-    <h3>Feel free to leave a comment!</h3>
+    <h2>Feel free to leave a comment!</h2>
     <%- include("partials/addMessage.ejs") %>
     <h3>Messages</h3>
     <% if(locals.messages && locals.messages.length > 0){ %>
@@ -16,6 +16,9 @@
             <h3><%=message.user%></h3>
              <p><%=message.text%></p>
              <p><%=message.added%></p>
+             <a href="/message/<%=message.id%>">
+                <button>Open</button>
+            </a>
         <% }); %> 
     <% } else { %>
         <p>No messages found!</p>

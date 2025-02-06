@@ -4,6 +4,14 @@ exports.getMessages = () => {
     return db.getMessages(); 
 }
 
-exports.addMessage = (text, user) => {
-    db.addMessage(text, user); 
+exports.getMessage = (id) => {
+    return db.getMessage(id); 
+}
+
+exports.addMessage = (text, user, timezone) => {
+    db.addMessage(text, user, timezone); 
+}
+
+exports.getZones = () => {
+    return db.getZones(); 
 }
