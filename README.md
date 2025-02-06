@@ -1,6 +1,6 @@
 # odin-message-board
 
-This is my implementation of The Odin Project's message board app hosted at [here](https://message-board-6a538.web.app/messages)
+This is my implementation of The Odin Project's message board app hosted [here](https://message-board-6a538.web.app/messages)
 
 ## Features 
 
