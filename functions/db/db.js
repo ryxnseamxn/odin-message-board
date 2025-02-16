@@ -1,6 +1,7 @@
 const zoneinfo = require('zoneinfo')
 const clock = require('world-clock')()
 const pg = require('pg'); 
+const pool = require('./pool');
 
 class Storage {
     constructor() {
